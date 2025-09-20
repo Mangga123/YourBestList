@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
 
     <style>
       * {
@@ -19,13 +22,13 @@
       body {
         background: #f4f6f9;
         color: #333;
-        padding: 20px;
+        padding: 15px;
       }
 
       h1,
       h2 {
         text-align: center;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         color: #2c3e50;
       }
 
@@ -34,13 +37,13 @@
         margin: auto;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 20px;
+        gap: 15px;
       }
 
       .card {
         background: #fff;
         border-radius: 12px;
-        padding: 20px;
+        padding: 15px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
       }
 
@@ -53,12 +56,13 @@
       input,
       select {
         width: 100%;
-        padding: 10px;
+        padding: 8px;
         margin-top: 5px;
         border-radius: 8px;
         border: 1px solid #ccc;
         outline: none;
         transition: border 0.2s;
+        font-size: 14px;
       }
 
       input:focus,
@@ -67,8 +71,8 @@
       }
 
       button {
-        margin-top: 15px;
-        padding: 10px 20px;
+        margin-top: 12px;
+        padding: 10px 15px;
         border: none;
         border-radius: 8px;
         background: #3498db;
@@ -76,6 +80,7 @@
         font-weight: 600;
         cursor: pointer;
         transition: 0.2s;
+        font-size: 14px;
       }
 
       button:hover {
@@ -86,11 +91,12 @@
         width: 100%;
         border-collapse: collapse;
         margin-top: 15px;
+        font-size: 14px;
       }
 
       th,
       td {
-        padding: 12px;
+        padding: 10px;
         text-align: center;
         border-bottom: 1px solid #eee;
       }
@@ -127,9 +133,28 @@
         color: #27ae60;
       }
 
+      /* 🔹 Responsif untuk layar kecil */
       @media (max-width: 900px) {
         .container {
           grid-template-columns: 1fr;
+        }
+
+        body {
+          padding: 10px;
+        }
+
+        h1 {
+          font-size: 20px;
+        }
+
+        h2 {
+          font-size: 16px;
+        }
+
+        table {
+          display: block;
+          overflow-x: auto;
+          white-space: nowrap;
         }
       }
     </style>
@@ -233,7 +258,8 @@
 
       function tampilkan() {
         let jadwalTable = document.getElementById("jadwalTable");
-        jadwalTable.innerHTML = "<tr><th>Mata Kuliah</th><th>Hari</th><th>Jam</th><th>Ruang</th><th>Dosen</th><th>SKS</th></tr>";
+        jadwalTable.innerHTML =
+          "<tr><th>Mata Kuliah</th><th>Hari</th><th>Jam</th><th>Ruang</th><th>Dosen</th><th>SKS</th></tr>";
         let total = 0;
         jadwal.forEach((j) => {
           let row = jadwalTable.insertRow();
@@ -246,7 +272,8 @@
         document.getElementById("totalSKS").innerText = total;
 
         let tugasTable = document.getElementById("tugasTable");
-        tugasTable.innerHTML = "<tr><th>Tugas</th><th>Deadline</th><th>Status</th></tr>";
+        tugasTable.innerHTML =
+          "<tr><th>Tugas</th><th>Deadline</th><th>Status</th></tr>";
         tugas.forEach((t, idx) => {
           let row = tugasTable.insertRow();
           row.insertCell().innerText = t[0];
@@ -291,14 +318,6 @@
       }
 
       function resetSKS() {
-        jadwal = [];
-        saveData();
-        tampilkan();
-      }
-
-      loadData();
-
-      function resetSKS() {
         if (confirm("Yakin ingin mengreset semua SKS yang sudah tercantum?")) {
           jadwal = [];
           saveData();
@@ -313,7 +332,8 @@
           tampilkan();
         }
       }
+
+      loadData();
     </script>
   </body>
 </html>
-
